@@ -1,0 +1,29 @@
+{
+  "name": "webcomics-rest-api",
+  "version": "1.0.0",
+  "description": "REST API Webcomics Tracker dengan ExpressJS, MongoDB Mongoose, dan Integrasi Eksternal MangaDex API - Final Project Study Club Backend Basic KSM Veterantech UPNVJ 2026",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "express",
+    "mongodb",
+    "mongoose",
+    "rest-api",
+    "mangadex",
+    "webcomics",
+    "veterantech",
+    "backend"
+  ],
+  "author": "ZAKY MUHAMMAD ALTHAF (2610512121)",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.5"
+  }
+}
