@@ -1,0 +1,15 @@
+$kind: http-request
+name: "9. External: Import Manga from MangaDex to MongoDB"
+url: "{{baseUrl}}/api/mangadex/import/{{mangadexId}}"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "status": "Reading",
+      "currentChapter": 50,
+      "rating": 9.5
+    }
+order: 10000

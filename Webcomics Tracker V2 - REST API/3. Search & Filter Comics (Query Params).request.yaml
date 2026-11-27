@@ -1,0 +1,8 @@
+$kind: http-request
+url: "{{baseUrl}}/api/comics?search=one&status=Reading&sort=rating"
+method: GET
+queryParams:
+  search: one
+  status: Reading
+  sort: rating
+order: 4000

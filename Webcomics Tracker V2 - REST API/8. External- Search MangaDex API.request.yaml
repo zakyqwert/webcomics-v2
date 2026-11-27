@@ -1,0 +1,8 @@
+$kind: http-request
+name: "8. External: Search MangaDex API"
+url: "{{baseUrl}}/api/mangadex/search?title=Solo Leveling&limit=5"
+method: GET
+queryParams:
+  title: Solo Leveling
+  limit: "5"
+order: 9000

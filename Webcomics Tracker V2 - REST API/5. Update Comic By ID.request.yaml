@@ -1,0 +1,14 @@
+$kind: http-request
+url: "{{baseUrl}}/api/comics/{{comicId}}"
+method: PUT
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "currentChapter": 1125,
+      "rating": 9.9,
+      "notes": "Elbaf arc semakin seru!"
+    }
+order: 6000

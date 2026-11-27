@@ -1,0 +1,19 @@
+$kind: http-request
+url: "{{baseUrl}}/api/comics"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "title": "One Piece",
+      "author": "Eiichiro Oda",
+      "genre": ["Adventure", "Action", "Fantasy"],
+      "status": "Reading",
+      "currentChapter": 1120,
+      "totalChapters": 1130,
+      "rating": 9.8,
+      "notes": "World-building luar biasa!"
+    }
+order: 2000
