@@ -8,8 +8,8 @@ body:
   type: text
   content: |-
     {
-      "status": "Reading",
-      "currentChapter": 50,
+      "status": "Plan to Read",
+      "currentChapter": 0,
       "rating": 9.5
     }
 order: 10000
