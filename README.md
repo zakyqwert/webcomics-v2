@@ -61,7 +61,7 @@ cp .env.example .env
 ### 3. Konfigurasi Environment Variable (`.env`)
 | Variable | Keterangan | Contoh |
 |---|---|---|
-| `PORT` | Port server Express berjalan | `5000` |
+| `PORT` | Port server Express berjalan | `3000` |
 | `MONGO_URI` | Connection string MongoDB Atlas / Lokal | `mongodb+srv://user:pass@cluster0.mongodb.net/webcomics_db` |
 
 ### 4. Jalankan Server
@@ -72,7 +72,7 @@ npm start
 # Mode development (auto-reload)
 npm run dev
 ```
-Server akan berjalan di `http://localhost:5000`.
+Server akan berjalan di `http://localhost:3000`.
 
 ---
 
@@ -103,7 +103,7 @@ Server akan berjalan di `http://localhost:5000`.
 
 1. Buka aplikasi **Postman**.
 2. Klik **Import** dan pilih file [`postman_collection.json`](./postman_collection.json).
-3. Pastikan variable `baseUrl` bernilai `http://localhost:5000`.
+3. Pastikan variable `baseUrl` bernilai `http://localhost:3000`.
 4. Jalankan request secara berurutan (Create -> Get All -> Search -> Update -> Delete, serta MangaDex Search & Import).
 
 ---
