@@ -27,6 +27,14 @@ async function fetchAniList(query, variables) {
   return json.data;
 }
 
+const PUBLICATION_STATUS_MAP = {
+  RELEASING: 'Ongoing',
+  FINISHED: 'Completed',
+  HIATUS: 'Hiatus',
+  CANCELLED: 'Cancelled',
+  NOT_YET_RELEASED: 'Upcoming'
+};
+
 /**
  * Helper untuk memformat response mentah dari AniList menjadi objek ringkas.
  */
@@ -42,7 +50,7 @@ function formatAniListItem(item) {
     title,
     author,
     genre,
-    publicationStatus: item.status || 'RELEASING',
+    publicationStatus: PUBLICATION_STATUS_MAP[item.status] || 'Unknown',
     totalChapters: Number(item.chapters) || 0,
     coverUrl,
     description: cleanDescription
@@ -175,6 +183,7 @@ export const importFromAniList = async (req, res, next) => {
       author: formatted.author,
       genre: formatted.genre,
       status,
+      publicationStatus: formatted.publicationStatus,
       currentChapter,
       totalChapters: formatted.totalChapters,
       rating,

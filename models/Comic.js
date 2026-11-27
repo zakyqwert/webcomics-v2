@@ -27,6 +27,11 @@ const comicSchema = new mongoose.Schema(
       },
       default: 'Plan to Read'
     },
+    publicationStatus: {
+      type: String,
+      enum: ['Ongoing', 'Completed', 'Hiatus', 'Cancelled', 'Upcoming', 'Unknown'],
+      default: 'Unknown'
+    },
     currentChapter: {
       type: Number,
       min: [0, 'Chapter saat ini tidak boleh negatif'],
