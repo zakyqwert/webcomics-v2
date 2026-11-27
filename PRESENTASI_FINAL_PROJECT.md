@@ -15,8 +15,8 @@
 - **Pattern:** Modular MVC (*Model - Controller - Routes*) + *Middleware*
 - **Tech Stack:** Node.js, Express.js, MongoDB + Mongoose, Dotenv, CORS
 - **Alur Data:**
-  1. **Client / Postman** mengirim HTTP Request ke **Routes** (`comicRoutes.js` / `mangadexRoutes.js`).
-  2. **Controllers** memvalidasi input, menjalankan `try...catch`, lalu memproses data ke **Model** (`Comic.js`) di **MongoDB** atau memanggil **MangaDex External API** (`api.mangadex.org`).
+  1. **Client / Postman** mengirim HTTP Request ke **Routes** (`comicRoutes.js` / `anilistRoutes.js`).
+  2. **Controllers** memvalidasi input, menjalankan `try...catch`, lalu memproses data ke **Model** (`Comic.js`) di **MongoDB** atau memanggil **AniList GraphQL API** (`graphql.anilist.co`).
   3. **Middleware** (`errorHandler.js`) menangkap error dan mengembalikan HTTP status code yang sesuai (`200`, `201`, `400`, `404`, `409`, `500`).
 
 ---
@@ -41,11 +41,11 @@
 | **POST** | `/api/comics` | Menambahkan komik baru ke MongoDB |
 | **PUT** | `/api/comics/:id` | Mengubah data, progres chapter, atau rating komik (auto-status `Completed`) |
 | **DELETE** | `/api/comics/:id` | Menghapus komik dari MongoDB |
-| **GET** | `/api/mangadex/search` | Mencari manga secara real-time dari **MangaDex External API** |
-| **POST** | `/api/mangadex/import/:mangadexId` | Mengimpor data manga dari MangaDex langsung ke MongoDB |
+| **GET** | `/api/anilist/search` | Mencari manga secara real-time dari **AniList GraphQL API** |
+| **POST** | `/api/anilist/import/:anilistId` | Mengimpor data manga dari AniList langsung ke MongoDB |
 
 ---
 
 ## Slide 5: Kesimpulan
 - Proyek **Webcomics Tracker V2** berhasil memenuhi seluruh persyaratan backend dasar: arsitektur modular MVC, integrasi database persisten **MongoDB**, dynamic routing (`:id` dan query parameters), error handling terstruktur (`try...catch` + status code), serta keamanan `.env`.
-- Nilai tambah utama aplikasi ini adalah integrasi dengan **MangaDex External API** menggunakan native `fetch`, sehingga pengguna tidak perlu mengetik seluruh detail manga secara manual dan dapat langsung mengimpornya ke database MongoDB pribadi.
+- Nilai tambah utama aplikasi ini adalah integrasi dengan **AniList GraphQL API** menggunakan native `fetch`, sehingga pengguna tidak perlu mengetik seluruh detail manga secara manual dan dapat langsung mengimpornya ke database MongoDB pribadi.

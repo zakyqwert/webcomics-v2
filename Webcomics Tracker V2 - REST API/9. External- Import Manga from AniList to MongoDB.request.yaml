@@ -1,6 +1,6 @@
 $kind: http-request
-name: "9. External: Import Manga from MangaDex to MongoDB"
-url: "{{baseUrl}}/api/mangadex/import/{{mangadexId}}"
+name: "9. External: Import Manga from AniList to MongoDB"
+url: "{{baseUrl}}/api/anilist/import/{{anilistId}}"
 method: POST
 headers:
   Content-Type: application/json

@@ -1,6 +1,6 @@
 $kind: collection
-description: Postman Collection untuk menguji seluruh endpoint CRUD MongoDB dan integrasi MangaDex External API (Final Project Study Club Backend Basic KSM Veterantech UPNVJ 2026).
+description: Postman Collection untuk menguji seluruh endpoint CRUD MongoDB dan integrasi AniList GraphQL API (Final Project Study Club Backend Basic KSM Veterantech UPNVJ 2026).
 variables:
   baseUrl: http://localhost:3000
   comicId: REPLACE_WITH_MONGODB_ID
-  mangadexId: 32d76d19-8a05-4db0-9fc2-e0b0648fe9d0
+  anilistId: "105398"

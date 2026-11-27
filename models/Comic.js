@@ -48,12 +48,12 @@ const comicSchema = new mongoose.Schema(
       trim: true,
       default: ''
     },
-    // Field tambahan untuk integrasi eksternal MangaDex API
-    mangadexId: {
+    // Field tambahan untuk integrasi eksternal AniList GraphQL API
+    anilistId: {
       type: String,
       trim: true,
       unique: true,
-      sparse: true // Mengizinkan banyak dokumen tanpa mangadexId (input manual)
+      sparse: true // Mengizinkan banyak dokumen tanpa anilistId (input manual)
     },
     coverUrl: {
       type: String,
@@ -62,7 +62,7 @@ const comicSchema = new mongoose.Schema(
     },
     source: {
       type: String,
-      enum: ['manual', 'mangadex'],
+      enum: ['manual', 'anilist'],
       default: 'manual'
     }
   },

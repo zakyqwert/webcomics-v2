@@ -3,7 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
 import comicRoutes from './routes/comicRoutes.js';
-import mangadexRoutes from './routes/mangadexRoutes.js';
+import anilistRoutes from './routes/anilistRoutes.js';
 import { notFound, errorHandler } from './middleware/errorHandler.js';
 
 // Load environment variables dari .env
@@ -23,26 +23,26 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
   res.status(200).json({
     success: true,
-    message: 'Welcome to Webcomics Tracker V2 REST API (Express + MongoDB + MangaDex)',
+    message: 'Welcome to Webcomics Tracker V2 REST API (Express + MongoDB + AniList)',
     author: 'Zaky Muhammad Althaf (2610512121)',
     endpoints: {
       comics: '/api/comics',
       stats: '/api/comics/stats',
-      mangadexSearch: '/api/mangadex/search?title=solo',
-      mangadexImport: '/api/mangadex/import/:mangadexId'
+      anilistSearch: '/api/anilist/search?title=solo',
+      anilistImport: '/api/anilist/import/:anilistId'
     }
   });
 });
 
 // Mount Routes
 app.use('/api/comics', comicRoutes);
-app.use('/api/mangadex', mangadexRoutes);
+app.use('/api/anilist', anilistRoutes);
 
 // Error Handling Middlewares
 app.use(notFound);
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log(`🚀 Server Webcomics V2 berjalan di http://localhost:${PORT}`);

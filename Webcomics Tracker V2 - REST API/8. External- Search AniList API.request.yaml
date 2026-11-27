@@ -1,0 +1,8 @@
+$kind: http-request
+name: "8. External: Search AniList API"
+url: "{{baseUrl}}/api/anilist/search?title=One Piece&limit=5"
+method: GET
+queryParams:
+  title: One Piece
+  limit: "5"
+order: 9000

@@ -1,4 +1,4 @@
-# 📚 Webcomics Tracker V2 — REST API (Express.js + MongoDB + MangaDex API)
+# 📚 Webcomics Tracker V2 — REST API (Express.js + MongoDB + AniList API)
 
 > **Final Project Study Club Backend Basic — KSM Veterantech UPNVJ 2026**  
 > **Nama:** Zaky Muhammad Althaf  
@@ -9,7 +9,7 @@
 
 ## 📌 Deskripsi Project
 
-**Webcomics Tracker V2** adalah RESTful API berbasis **Node.js**, **Express.js**, dan **MongoDB (Mongoose)** untuk mengelola daftar bacaan manga, manhwa, dan webtoon. Selain mendukung operasi CRUD penuh ke database MongoDB, API ini terintegrasi langsung dengan **MangaDex External API** sehingga pengguna dapat mencari ribuan judul manga secara *real-time* dan langsung mengimpornya ke koleksi MongoDB pribadi.
+**Webcomics Tracker V2** adalah RESTful API berbasis **Node.js**, **Express.js**, dan **MongoDB (Mongoose)** untuk mengelola daftar bacaan manga, manhwa, dan webtoon. Selain mendukung operasi CRUD penuh ke database MongoDB, API ini terintegrasi langsung dengan **AniList GraphQL API** sehingga pengguna dapat mencari ribuan judul manga secara *real-time* dan langsung mengimpornya ke koleksi MongoDB pribadi.
 
 ---
 
@@ -21,14 +21,14 @@ webcomics-v2/
 │   └── db.js                   # Konfigurasi koneksi MongoDB via Mongoose
 ├── controllers/
 │   ├── comicController.js      # Logika CRUD, query filter, & statistik agregasi
-│   └── mangadexController.js   # Integrasi MangaDex API (Search & Import ke MongoDB)
+│   └── anilistController.js   # Integrasi AniList API (Search & Import ke MongoDB)
 ├── middleware/
 │   └── errorHandler.js         # Centralized error handling & 404 handler
 ├── models/
 │   └── Comic.js                # Mongoose Schema & validasi data komik
 ├── routes/
 │   ├── comicRoutes.js          # Endpoint /api/comics (Path & Query parameters)
-│   └── mangadexRoutes.js       # Endpoint /api/mangadex
+│   └── anilistRoutes.js       # Endpoint /api/anilist
 ├── .env.example                # Template environment variable
 ├── .gitignore                  # Mengecualikan node_modules dan .env dari Git
 ├── package.json                # Daftar package dan script npm
@@ -90,12 +90,12 @@ Server akan berjalan di `http://localhost:3000`.
 | `PUT` | `/api/comics/:id` | Path: `:id`, Body JSON | Update data, progres chapter, atau rating komik |
 | `DELETE` | `/api/comics/:id` | Path: `:id` | Hapus komik dari MongoDB |
 
-### B. Integrasi Eksternal (MangaDex API)
+### B. Integrasi Eksternal (AniList API)
 
 | Method | Endpoint | Parameter | Deskripsi |
 |---|---|---|---|
-| `GET` | `/api/mangadex/search` | Query: `?title=Solo Leveling&limit=5` | Cari komik langsung dari database MangaDex |
-| `POST` | `/api/mangadex/import/:mangadexId` | Path: `:mangadexId`, Body opsional (`status`, `rating`, `currentChapter`) | Import komik dari MangaDex ke MongoDB lokal |
+| `GET` | `/api/anilist/search` | Query: `?title=Solo Leveling&limit=5` | Cari komik langsung dari database AniList |
+| `POST` | `/api/anilist/import/:anilistId` | Path: `:anilistId`, Body opsional (`status`, `rating`, `currentChapter`) | Import komik dari AniList ke MongoDB lokal |
 
 ---
 
@@ -104,7 +104,7 @@ Server akan berjalan di `http://localhost:3000`.
 1. Buka aplikasi **Postman**.
 2. Klik **Import** dan pilih file [`postman_collection.json`](./postman_collection.json).
 3. Pastikan variable `baseUrl` bernilai `http://localhost:3000`.
-4. Jalankan request secara berurutan (Create -> Get All -> Search -> Update -> Delete, serta MangaDex Search & Import).
+4. Jalankan request secara berurutan (Create -> Get All -> Search -> Update -> Delete, serta AniList Search & Import).
 
 ---
 
@@ -115,5 +115,5 @@ Server akan berjalan di `http://localhost:3000`.
   ```bash
   git init
   git add .
-  git commit -m "feat: initialize Webcomics V2 REST API with MongoDB and MangaDex integration"
+  git commit -m "feat: initialize Webcomics V2 REST API with MongoDB and AniList integration"
   ```
